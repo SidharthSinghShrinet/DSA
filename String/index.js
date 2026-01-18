@@ -120,3 +120,133 @@ function countCapitalSmallDigitSpecial(str) {
 
 countCapitalSmallDigitSpecial("Jsp@123_xyZ");
 */
+
+//! Date :- 18/01/2026
+
+//^ Question 1 (Reverse the string)
+//$ 1st Method (Split-Reverse-Join)
+/*
+function reverseString(str) {
+  console.log(str.split("").reverse().join(""));
+}
+
+reverseString("Hello World!");
+*/
+
+//$ 2nd Method (For Loop + String Concatenation)
+/*
+function reverseString(str) {
+  let newString = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    newString += str[i];
+  }
+  console.log(newString);
+}
+
+reverseString("Hello World!");
+*/
+
+//$ 3rd Way (Two Pointer Approach)
+/*
+function reverseString(str) {
+  let arr = [...str];
+  let left = 0;
+  let right = arr.length - 1;
+  console.log(arr);
+  while (left < right) {
+    [arr[left], arr[right]] = [arr[right], arr[left]];
+    left++;
+    right--;
+  }
+  arr = arr.join("");
+  console.log(arr);
+}
+
+reverseString("Hello World!");
+*/
+
+//^ Question 2 (Check if the string is palindrome or not)
+/*
+//$ 1st Method  (Split-Reverse-Join)
+function isPalindrome(str) {
+  if (str.split("").reverse().join("").toLowerCase() === str.toLowerCase()) {
+    console.log("String is Palindrome");
+  } else {
+    console.log("String is not Palindrome");
+  }
+}
+
+isPalindrome("Madam");
+isPalindrome("HahaH");
+*/
+
+//$ 2nd Method (For Loop + String Comparison)
+/*
+function isPalindrome(str) {
+  for (let i = 0; i < Math.floor(str.length / 2); i++) {
+    if (str[i].toLowerCase() !== str[str.length - 1 - i].toLowerCase()) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(isPalindrome("Madam"));
+*/
+
+//$ 3rd Method (Two-pointer approach)
+/*
+function isPalindrome(str) {
+  let arr = [...str];
+  let left = 0;
+  let right = arr.length - 1;
+  while (left < right) {
+    if (arr[left].toLowerCase() !== arr[right].toLowerCase()) {
+      return false;
+    }
+    left++;
+    right--;
+  }
+  return true;
+}
+
+console.log(isPalindrome("xyz"));
+*/
+
+//^ Question 3 (Check whether the string contains all the pattern like capital,small,digit and special characters or not)
+function checkPattern(str) {
+  let capitalCount = 0;
+  let smallCount = 0;
+  let digitCount = 0;
+  let specialCount = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] >= "A" && str[i] <= "Z") {
+      capitalCount++;
+    } else if (str[i] >= "a" && str[i] <= "z") {
+      smallCount++;
+    } else if (str[i] >= 0 && str[i] <= 9) {
+      digitCount++;
+    } else {
+      specialCount++;
+    }
+  }
+  if (
+    capitalCount === 0 ||
+    smallCount === 0 ||
+    digitCount === 0 ||
+    specialCount === 0
+  ) {
+    console.log("String doesn't contain all the pattern");
+    return false;
+  } else {
+    console.log("String contains all the pattern");
+    return true;
+  }
+}
+
+// let result = checkPattern("Jsp@123.com");
+// let result = checkPattern("MERN@123");
+// let result = checkPattern("Mern@");
+// let result = checkPattern("Mern123");
+let result = checkPattern("Mern@123");
+console.log(result);
