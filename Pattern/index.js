@@ -417,6 +417,7 @@ pattern(5);
 */
 
 // Pattern 3
+/*
 function pattern(n) {
   let space = n - 1;
   let star = 1;
@@ -436,6 +437,7 @@ function pattern(n) {
 }
 
 pattern(5);
+*/
 
 // Pattern 4
 /*
@@ -865,3 +867,126 @@ function pattern(n) {
 
 pattern(7);
 */
+
+//! Date:- 16/01/2026
+
+//^ Pattern 1
+/*
+function pattern(n) {
+  let str = "";
+  let space = Math.floor(n / 2);
+  let star = 1;
+  let mid = Math.floor(n / 2) + 1;
+  for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= space; j++) {
+      str += "  ";
+    }
+    for (let j = 1; j <= star; j++) {
+      if (Math.ceil(star / 2) >= j) {
+        str += String.fromCharCode(64 + j) + " ";
+      } else {
+        str += String.fromCharCode(64 + (star - j + 1)) + " ";
+      }
+    }
+    if (mid > i) {
+      space--;
+      star += 2;
+    } else {
+      space++;
+      star -= 2;
+    }
+    str += "\n";
+  }
+  console.log(str);
+}
+
+pattern(7);
+*/
+
+// Pattern 2
+/*
+function pattern(n) {
+  let star = 1;
+  let str = "";
+  for (let i = 1; i <= n; i++) {
+    for (let j = i; j >= 1; j--) {
+      str += String.fromCharCode(64 + j) + " ";
+    }
+    str += "\n";
+  }
+  console.log(str);
+}
+
+pattern(5);
+*/
+
+// Pattern 3
+/*
+function pattern(n) {
+  let space = n - 1;
+  let star = 1;
+  let str = "";
+  for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= space; j++) {
+      str += "  ";
+    }
+    for (let j = 1; j <= star; j++) {
+      str += String.fromCharCode(64 + j) + " ";
+    }
+    str += "\n";
+    space--;
+    star++;
+  }
+  console.log(str);
+}
+
+pattern(5);
+*/
+
+// Pattern 4'
+/*
+function pattern(n) {
+  let str = "";
+  let count = 1;
+  for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= n; j++) {
+      str += String.fromCharCode(96 + count) + " ";
+      count++;
+    }
+    str += "\n";
+  }
+  console.log(str);
+}
+
+pattern(5);
+*/
+
+//^ Pattern 5
+function pattern(n) {
+  let str = "";
+  let star = 1;
+  let space = n - 1;
+  let mid = Math.floor(n / 2) + 1;
+  for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= star; j++) {
+      str += "* ";
+    }
+    for (let j = 1; j <= space; j++) {
+      str += "  ";
+    }
+    for (let j = 1; j <= star; j++) {
+      str += "* ";
+    }
+    if (mid > i) {
+      star++;
+      space -= 2;
+    } else {
+      star--;
+      space += 2;
+    }
+    str += "\n";
+  }
+  console.log(str);
+}
+
+pattern(7);
