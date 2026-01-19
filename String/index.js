@@ -214,6 +214,7 @@ console.log(isPalindrome("xyz"));
 */
 
 //^ Question 3 (Check whether the string contains all the pattern like capital,small,digit and special characters or not)
+/*
 function checkPattern(str) {
   let capitalCount = 0;
   let smallCount = 0;
@@ -250,3 +251,146 @@ function checkPattern(str) {
 // let result = checkPattern("Mern123");
 let result = checkPattern("Mern@123");
 console.log(result);
+*/
+
+//! Date :- 19/01/2026
+
+//^ Question 1 (Find the total sum of all the digits in the string)
+/*
+function totalSum(str) {
+  let sum = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] >= 0 && str[i] <= 9) {
+      sum = sum + Number(str[i]);
+    }
+  }
+  console.log(sum);
+}
+
+totalSum("Jsp@12345");
+*/
+
+//^  Question 2 (Check whether the substring inside the string is palindrome or not and print the substring which is palindrome and sunbstring should not be include the main string)
+/*
+function isPalindrome(str) {
+  for (let i = 0; i < Math.floor(str.length / 2); i++) {
+    if (str[i].toLowerCase() !== str[str.length - 1 - i].toLowerCase()) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function CheckSubString(str) {
+  for (let i = 0; i < str.length - 1; i++) {
+    let sub = str[i];
+    for (let j = i + 1; j < str.length; j++) {
+      sub += str[j];
+      if (isPalindrome(sub) && sub.length !== str.length) {
+        console.log(sub);
+      }
+    }
+  }
+}
+
+CheckSubString("malayalam");
+*/
+
+//^ Question 3 (Find the occurrence of each character in the string)
+/*
+function findOccurrence(str) {
+  let obj = {};
+  for (let i = 0; i < str.length; i++) {
+    obj[str[i]] = (obj[str[i]] || 0) + 1;
+  }
+  for (let key in obj) {
+    console.log(`${key} = ${obj[key]}`);
+  }
+}
+
+findOccurrence("abcadcc");
+*/
+
+//^ Question 4 (Find the maximum occurence of character in the string)
+//$ 1st Method
+/*
+function maximumOccurence(str) {
+  let obj = {};
+  for (let i = 0; i < str.length; i++) {
+    obj[str[i]] = (obj[str[i]] || 0) + 1;
+  }
+  let max = 0;
+  let ch = "";
+  for (let key in obj) {
+    if (obj[key] > max) {
+      max = obj[key];
+      ch = key;
+    }
+  }
+  console.log(`${ch} = ${max}`);
+}
+
+maximumOccurence("abbcadcc");
+*/
+
+//$ 2nd Method
+/* 
+function maximumOccurence(str) {
+  let obj = {};
+  for (let i = 0; i < str.length; i++) {
+    obj[str[i]] = (obj[str[i]] || 0) + 1;
+  }
+  let max = 0;
+  for (let key in obj) {
+    if (obj[key] > max) {
+      max = obj[key];
+    }
+  }
+
+  for (let key in obj) {
+    if (obj[key] === max) {
+      console.log(`${key} = ${max}`);
+    }
+  }
+}
+
+maximumOccurence("abcadcc");
+*/
+
+//^ Question 5 (Find the minimum occurence of character in the string)
+/*
+function minimumOccurence(str) {
+  let obj = {};
+  for (let i = 0; i < str.length; i++) {
+    obj[str[i]] = (obj[str[i]] || 0) + 1;
+  }
+  console.log(obj);
+  let min = Infinity;
+  let ch = "";
+  for (let key in obj) {
+    if (obj[key] <= min) {
+      min = obj[key];
+      ch = key;
+    }
+  }
+  console.log(`${ch} = ${min}`);
+}
+
+minimumOccurence("abcadcc");
+*/
+
+//^ Question 6 (Remove the duplicate characters from the string)
+function removeDuplicates(str) {
+  let newStr = "";
+  let obj = {};
+  for (let i = 0; i < str.length; i++) {
+    if (!obj[str[i]]) {
+      obj[str[i]] = 1;
+      newStr += str[i];
+    }
+  }
+  // console.log(obj);
+  console.log(newStr);
+}
+
+removeDuplicates("abcadcc");
