@@ -380,6 +380,7 @@ minimumOccurence("abcadcc");
 */
 
 //^ Question 6 (Remove the duplicate characters from the string)
+/*
 function removeDuplicates(str) {
   let newStr = "";
   let obj = {};
@@ -394,3 +395,117 @@ function removeDuplicates(str) {
 }
 
 removeDuplicates("abcadcc");
+*/
+
+//! Date :- 20/01/2026
+//^ Question 1 (Convert all the small letter characters in the string into capital characters)
+/*
+function convertCapital(str) {
+  let newStr = "";
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] >= "a" && str[i] <= "z") {
+      newStr += String.fromCharCode(str.charCodeAt(i) - 32);
+    } else {
+      newStr += str[i];
+    }
+  }
+  console.log(newStr);
+}
+
+convertCapital("jsp@123");
+*/
+
+//^ Question 2 (Convert all the capital letter characters in the string into small characters)
+/*
+function convertSmall(str) {
+  let newStr = "";
+  for (let i = 0; i < str.length; i++) {
+    if (str >= "A" && str[i] <= "Z") {
+      newStr += str[i].toLowerCase();
+    } else {
+      newStr += str[i];
+    }
+  }
+  console.log(newStr);
+}
+
+convertSmall("JSP@123");
+*/
+
+//^ Question 3 (Convert the characters into capital which is appearing twice or more in the string)
+/*
+function convertCapital(str) {
+  let obj = {};
+  for (let i = 0; i < str.length; i++) {
+    obj[str[i]] = (obj[str[i]] || 0) + 1;
+  }
+  let result = "";
+  for (let i = 0; i < str.length; i++) {
+    if (obj[str[i]] > 1) {
+      result += str[i].toUpperCase();
+    } else {
+      result += str[i];
+    }
+  }
+  console.log(result);
+}
+
+convertCapital("abccdbe");
+*/
+
+//^ Question 4 (Convert the characters into small which is appearing twice or more in the string)
+/*
+function convertSmall(str) {
+  let obj = {};
+  for (let i = 0; i < str.length; i++) {
+    obj[str[i]] = (obj[str[i]] || 0) + 1;
+  }
+  let result = "";
+  for (let i = 0; i < str.length; i++) {
+    if (obj[str[i]] > 1) {
+      result += str[i].toLowerCase();
+    } else {
+      result += str[i];
+    }
+  }
+  console.log(result);
+}
+
+convertSmall("ABCCDBE");
+*/
+
+//^ Question 5 (Print the new string which is having the characters which is appearing once in the string)
+/*
+function printNonRepetitve(str) {
+  let obj = {};
+  for (let i = 0; i < str.length; i++) {
+    obj[str[i]] = (obj[str[i]] || 0) + 1;
+  }
+  let newString = "";
+  for (let i = 0; i < str.length; i++) {
+    if (obj[str[i]] === 1) {
+      newString += str[i];
+    }
+  }
+  console.log(newString);
+}
+
+printNonRepetitve("abccdbe");
+*/
+
+//^ Question 6 (Print the new string which is having the characters which is appearing twice or more in the string)
+function printRepetitve(str) {
+  let obj = {};
+  for (let i = 0; i < str.length; i++) {
+    obj[str[i]] = (obj[str[i]] || 0) + 1;
+  }
+  let newString = "";
+  for (let i = 0; i < str.length; i++) {
+    if (obj[str[i]] > 1) {
+      newString += str[i];
+    }
+  }
+  console.log(newString);
+}
+
+printRepetitve("abccdbe");
