@@ -588,6 +588,7 @@ reverseWord("JS is very easy");
 */
 
 //$ 3rd Method (Three Pointer Method without Split Method)
+/*
 function stringReverse(str) {
   let j = 0;
   let k = 0;
@@ -609,3 +610,135 @@ function stringReverse(str) {
 }
 
 stringReverse("JS is very easy");
+*/
+
+//! Date:- 22/01/2026
+
+//& Test
+//^ Question 1(Print the Pattern)
+/*
+function pattern(n) {
+  let star = 1;
+  let space = n - 1;
+  let str = "";
+  for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= space; j++) {
+      str += "  ";
+    }
+    for (let j = 1; j <= star; j++) {
+      if (Math.ceil(star / 2) >= j) {
+        str += i - j + 1 + " ";
+      } else {
+        str += j - i + 1 + " ";
+      }
+    }
+    str += "\n";
+    star += 2;
+    space--;
+  }
+  console.log(str);
+}
+
+pattern(5);
+*/
+
+//^ Question 2(Print the alternate armstrong number from 10 to 500)
+/*
+function isArmstrong(num) {
+  let sum = 0;
+  let original = num;
+  while (num > 0) {
+    let rem = Math.floor(num % 10);
+    sum = sum + Math.pow(rem, 3);
+    num = Math.floor(num / 10);
+  }
+  return original == sum;
+}
+
+let arr = [];
+for (let i = 10; i <= 500; i++) {
+  if (isArmstrong(i)) {
+    arr.push(i);
+  }
+}
+
+arr = arr.filter((ele, idx) => idx % 2 === 0);
+
+console.log(arr);
+*/
+
+//^ Question 3(Find the 2nd largest prime number in a range from 10 to 200)
+/*
+function isPrime(num) {
+  if (num <= 1) {
+    return false;
+  }
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+let arr = [];
+for (let i = 10; i <= 200; i++) {
+  if (isPrime(i)) {
+    arr.push(i);
+  }
+}
+
+console.log(arr[arr.length - 2]);
+*/
+
+//^ Question 4(Find the three largest perfect number in a range from 1 to 1000)
+/*
+function isPerfect(num) {
+  let sum = 0;
+  for (let i = 1; i <= Math.floor(num / 2); i++) {
+    if (num % i === 0) {
+      sum += i;
+    }
+  }
+  return sum === num;
+}
+
+let arr = [];
+for (let i = 1; i <= 1000; i++) {
+  if (isPerfect(i)) {
+    arr.push(i);
+  }
+}
+
+console.log(arr[arr.length - 3]);
+*/
+
+//^ Question 5(Find the 1st three largest strong number in a range from 50 to 490)
+/*
+function factorial(n) {
+  if (n === 0 || n === 1) {
+    return 1;
+  }
+  return n * factorial(n - 1);
+}
+
+function isStrong(num) {
+  let sum = 0;
+  let original = num;
+  while (num > 0) {
+    let rem = Math.floor(num % 10);
+    sum = sum + factorial(rem);
+    num = Math.floor(num / 10);
+  }
+  return original === sum;
+}
+
+let arr = [];
+for (let i = 10; i <= 490; i++) {
+  if (isStrong(i)) {
+    arr.push(i);
+  }
+}
+
+console.log(arr);
+*/
