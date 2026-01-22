@@ -742,3 +742,31 @@ for (let i = 10; i <= 490; i++) {
 
 console.log(arr);
 */
+
+//! Date:- 22/01/2026 (Recursion)
+//^ Question 1
+/*
+function m1(n) {
+  if (n === 0) {
+    return;
+  }
+  console.log(n);
+  m1(n - 1);
+  console.log(n);
+}
+
+m1(4);
+*/
+
+//^ Question 2
+function m1(n) {
+  if (n === 0) {
+    return;
+  }
+  console.log(++n);
+  m1(n - 2);
+  console.log(--n);
+  console.log(n);
+}
+
+m1(4);
