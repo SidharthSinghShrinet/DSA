@@ -494,6 +494,7 @@ printNonRepetitve("abccdbe");
 */
 
 //^ Question 6 (Print the new string which is having the characters which is appearing twice or more in the string)
+/*
 function printRepetitve(str) {
   let obj = {};
   for (let i = 0; i < str.length; i++) {
@@ -509,3 +510,102 @@ function printRepetitve(str) {
 }
 
 printRepetitve("abccdbe");
+*/
+
+//! Date:- 21/01/2026
+
+//^ Question 1(Remove all the special characters from the string)
+/*
+function removeSpecial(str) {
+  let newStr = "";
+  for (let i = 0; i < str.length; i++) {
+    if (
+      (str[i] >= "A" && str[i] <= "Z") ||
+      (str[i] >= "a" && str[i] <= "z") ||
+      (str[i] >= "0" && str[i] <= "9")
+    ) {
+      newStr += str[i];
+    }
+  }
+  console.log(newStr);
+}
+
+removeSpecial("hello@23_!#45");
+*/
+
+//^ Question 2(Check whether two different strings are anagrams or not and output should be true or false)
+/*
+function checkAnagram(str1, str2) {
+  let obj1 = {};
+  let obj2 = {};
+  for (let i = 0; i < str1.length; i++) {
+    obj1[str1[i]] = (obj1[str1[i]] || 0) + 1;
+    obj2[str2[i]] = (obj2[str2[i]] || 0) + 1;
+  }
+  console.log(obj1, obj2);
+  for (let key in obj1) {
+    if (obj1[key] !== obj2[key]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(checkAnagram("care", "race"));
+*/
+
+//^ Question 3(Reverse the each word inside the string)
+//$ 1st Method (Split-Reverse-Join)
+/*
+function reverseWord(str) {
+  let strArr = str.split(" ");
+  let newStr = "";
+  for (let i = 0; i < strArr.length; i++) {
+    newStr += strArr[i].split("").reverse().join("") + " ";
+  }
+  console.log(newStr);
+}
+
+reverseWord("JS is very easy");
+*/
+
+//$ 2nd Method (For Loop)
+/*
+function reverseWord(str) {
+  let strArr = str.split(" ");
+  // console.log(strArr);
+  let newStr = "";
+  for (let i = 0; i < strArr.length; i++) {
+    for (let j = strArr[i].length - 1; j >= 0; j--) {
+      newStr += strArr[i][j];
+    }
+    newStr += " ";
+  }
+  console.log(newStr);
+}
+
+reverseWord("JS is very easy");
+*/
+
+//$ 3rd Method (Three Pointer Method without Split Method)
+function stringReverse(str) {
+  let j = 0;
+  let k = 0;
+  let newStr = "";
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === " " || i === str.length - 1) {
+      j = i - 1;
+      if (i === str.length - 1) {
+        j = i;
+      }
+      while (j >= k) {
+        newStr += str[j--];
+      }
+      newStr += " ";
+      k = i + 1;
+    }
+  }
+  console.log(newStr);
+}
+
+stringReverse("JS is very easy");
