@@ -759,6 +759,7 @@ m1(4);
 */
 
 //^ Question 2
+/*
 function m1(n) {
   if (n === 0) {
     return;
@@ -770,3 +771,4 @@ function m1(n) {
 }
 
 m1(4);
+*/
