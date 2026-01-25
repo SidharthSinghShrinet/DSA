@@ -128,6 +128,7 @@ paramterizedPrintSum(1, 5, 0);
 */
 
 //^ Question 8 (Reverse the array with the help of recursion)
+/*
 function reverseArray(arr, i) {
   let mid = Math.floor(arr.length / 2);
   if (i > mid - 1) {
@@ -140,3 +141,67 @@ function reverseArray(arr, i) {
 }
 
 reverseArray([5, 3, 8, 7, 6], 0);
+*/
+
+//! Date:- 23/01/2026 (Class Work)
+//^ Question 1 (Write the factorial of a number with the help of recursion)
+/*
+function factorial(n) {
+  if (n === 0) {
+    return 1;
+  }
+  return n * factorial(n - 1);
+}
+
+console.log(factorial(6));
+*/
+//^  Question 2 (find the total number of digits in a number with the help of recursion)
+/*
+$ 1st Method
+function totalDigits(n) {
+  if (n === 0) {
+    return 0;
+  }
+  return 1 + totalDigits(Math.floor(n / 10));
+}
+
+$ 2nd Method
+function totalDigits(n) {
+  if (n>=0 n && n<=9) {
+    return 1;
+  }
+  return 1 +  totalDigits(Math.floor(n / 10));
+}
+*/
+
+//^ Question 3(Find the power of a number with the help of recursion)
+/*
+function power(i, n) {
+  if (n === 0) {
+    return 1;
+  }
+  return i * power(i, n - 1);
+}
+
+console.log(power(2, 4));
+*/
+
+//^ Question 4 (Find the number is prime or not using recursion)
+/*
+function isPrime(i, n) {
+  if (n <= 1) return false;
+  if (n % i === 0) return false;
+  if (i === Math.floor(Math.sqrt(n))) return true;
+  return isPrime(i + 1, n);
+}
+
+console.log(isPrime(2, 149));
+*/
+
+//^ Question 5 (Find the sum of all digits in a number with the help of recursion).
+function totalDigits(n) {
+  if (n === 0) return 0;
+  return Math.floor(n % 10) + totalDigits(Math.floor(n / 10));
+}
+
+console.log(totalDigits(12345));

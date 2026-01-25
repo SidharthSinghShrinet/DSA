@@ -12,5 +12,74 @@
       compatibility, allowing developers to use newer JavaScript methods and
       APIs in older versions of the browser.</span
     >
+    <script>
+      //^ Question 1 (Create your own Push method)
+      /*
+        Array.prototype.myPush = function (...args) {
+          for (let i = 0; i < args.length; i++) {
+            this[this.length] = args[i];
+          }
+          return this.length;
+        };
+        let arr = [1, 2, 3, 4, 5];
+        let res = arr.myPush(6, 7, 8, 9);
+        console.log(arr);
+        console.log("Return by the push method:", res);
+      */
+
+      //^ Question 2(Create your own pop method)
+      /*
+        Array.prototype.myPop = function () {
+          let res = this[this.length - 1];
+          this.length = this.length - 1;
+          return res;
+        };
+        */
+      /*
+      Array.prototype.myPop2 = function (arg) {
+        if (arg >= this.length) {
+          this.length = [];
+        } else {
+          this.length = this.length - arg;
+        }
+      };
+      let arr = [1, 2];
+      let res = arr.myPop2(2);
+      console.log(arr);
+      console.log("Return by the push method:", res);
+      */
+      //^ Question 3(Create your own shift method)
+      /*
+      Array.prototype.myShift = function () {
+        let res = this[0];
+        for (let i = 0; i < this.length - 1; i++) {
+          this[i] = this[i + 1];
+        }
+        if (this.length > 0) {
+          this.length = this.length - 1;
+        }
+        return res;
+      };
+      let arr = [10, 20, 30, 40];
+      let res = arr.myShift();
+      console.log(arr);
+      console.log("Return by the Shift method:", res);
+    */
+
+      //^ Question 4(Create your own Unshift method)
+      Array.prototype.myUnshift = function (...args) {
+        for (let i = this.length - 1; i >= 0; i--) {
+          this[i + 1 + args.length] = this[i];
+        }
+        for (let i = 0; i < args.length; i++) {
+          this[i] = args[i];
+        }
+        return this.length;
+      };
+      let arr = [1, 2, 3, 4, 5];
+      let res = arr.myUnshift(6, 7, 8, 9);
+      console.log(arr);
+      console.log("Return by the push method:", res);
+    </script>
   </body>
 </html>
