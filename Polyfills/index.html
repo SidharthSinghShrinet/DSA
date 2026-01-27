@@ -19,42 +19,65 @@
     </p>
     <p>Make the Address Section(UI+Backend+Database)</p>
     <script>
-      //^ Question 1 (Create your own Push method)
+      //^ Question 1 (Create your own push method)
       /*
-        Array.prototype.myPush = function (...args) {
-          for (let i = 0; i < args.length; i++) {
-            this[this.length] = args[i];
-          }
-          return this.length;
-        };
-        let arr = [1, 2, 3, 4, 5];
-        let res = arr.myPush(6, 7, 8, 9);
-        console.log(arr);
-        console.log("Return by the push method:", res);
+      Array.prototype.myPush = function (...args) {
+        for (let i = 0; i < args.length; i++) {
+          this[this.length] = args[i];
+        }
+        return this.length;
+      };
+      let arr = [1, 2, 3, 4];
+      let res = arr.myPush(5, 6, 7);
+      console.log(arr);
+      console.log("Length of Array:", res);
+    */
+
+      //^ Question 2 (Create your own Pop method)
+      //$ 1st Way (For Single Element)
+      /*
+      Array.prototype.myPop = function () {
+        let res = this[this.length - 1];
+        if (this.length > 0) {
+          this.length = this.length - 1;
+        }
+        return res;
+      };
+
+      let arr = [];
+      let x = arr.pop();
+      console.log(arr);
+      console.log("x:", x);
       */
 
-      //^ Question 2(Create your own pop method)
-      /*
-        Array.prototype.myPop = function () {
-          let res = this[this.length - 1];
-          this.length = this.length - 1;
-          return res;
-        };
-        */
+      //$ 2nd Way(Removed Many Element from the last of the array)
       /*
       Array.prototype.myPop2 = function (arg) {
         if (arg >= this.length) {
-          this.length = [];
+          this.length = 0;
         } else {
           this.length = this.length - arg;
         }
       };
-      let arr = [1, 2];
-      let res = arr.myPop2(2);
-      console.log(arr);
-      console.log("Return by the push method:", res);
       */
-      //^ Question 3(Create your own shift method)
+
+      //& 1st Test Case
+      /*
+      let arr = [1, 2, 3, 4, 6];
+      let x = arr.myPop2(3);
+      console.log(arr);
+      console.log(x);
+      */
+
+      //& 2nd Test Case
+      /*
+      let arr = [1, 2];
+      let x = arr.myPop2(2);
+      console.log(arr);
+      console.log(x);
+      */
+
+      //^ Question 3 (Create your own shift method)
       /*
       Array.prototype.myShift = function () {
         let res = this[0];
@@ -66,26 +89,132 @@
         }
         return res;
       };
-      let arr = [10, 20, 30, 40];
-      let res = arr.myShift();
+      let arr = [10];
+      let x = arr.myShift();
       console.log(arr);
-      console.log("Return by the Shift method:", res);
-    */
+      console.log(x);
+      */
 
-      //^ Question 4(Create your own Unshift method)
-      Array.prototype.myUnshift = function (...args) {
+      //^ Question 4 (Create your own Unshift method)
+      //$ 1st Way (Add One Element at Starting of the array)
+      /*
+      Array.prototype.myUnshift = function (arg) {
+        for (let i = arr.length - 1; i >= 0; i--) {
+          this[i + 1] = this[i];
+        }
+        this[0] = arg;
+        return this.length;
+      };
+
+      let arr = [2, 3, 4, 5];
+      let x = arr.myUnshift(1);
+      console.log(arr);
+      console.log(x);
+      */
+
+      //$ 2nd Way(Add many Element at Starting of the array)
+      /*
+      Array.prototype.myUnshift2 = function (...args) {
         for (let i = this.length - 1; i >= 0; i--) {
-          this[i + 1 + args.length] = this[i];
+          this[i + args.length] = this[i];
+        }
+        for (i = 0; i < args.length; i++) {
+          this[i] = args[i];
+        }
+        return this.length;
+      };
+
+      let arr = [1, 2, 3, 4, 5];
+      let x = arr.myUnshift2(6, 7, 8, 9);
+      console.log(arr);
+      console.log(x);
+      */
+
+      //^ Question 5 (PopShift() --> The PopShift method will remove one element from the both end)
+      /*
+      Array.prototype.popShift = function () {
+        if (this.length <= 2) {
+          this.length = 0;
+        } else {
+          this.length = this.length - 1;
+          for (let i = 0; i < this.length - 1; i++) {
+            this[i] = this[i + 1];
+          }
+          this.length = this.length - 1;
+        }
+      };
+
+      let arr = [1, 2, 3, 4, 5, 6, 7];
+      let x = arr.popShift();
+      console.log(arr);
+      console.log(x);
+      */
+
+      //^ Question 5 (PopPush() Method)
+      /*
+      Array.prototype.popPush = function (...args) {
+        if (this.length <= 1) {
+          this.length = 0;
+        } else {
+          this.length = this.length - 1;
+        }
+        for (let i = 0; i < args.length; i++) {
+          this[this.length] = args[i];
+        }
+        return this.length;
+      };
+      let arr = [10, 20, 30, 40];
+      let x = arr.popPush(50, 60, 70);
+      console.log(arr);
+      console.log(x);
+      */
+
+      //^ Question 6 (ShiftPush() Method)
+      /*
+      Array.prototype.shiftPush = function (...args) {
+        if (this.length <= 1) {
+          this.length = 0;
+        } else {
+          for (let i = 0; i < this.length - 1; i++) {
+            this[i] = this[i + 1];
+          }
+          this.length = this.length - 1;
+        }
+        for (let i = 0; i < args.length; i++) {
+          this[this.length] = args[i];
+        }
+        return this.length;
+      };
+
+      let arr = [10, 20, 30, 40];
+      let x = arr.shiftPush(50, 60, 70);
+      console.log(arr);
+      console.log(x);
+      */
+
+      //^ Question 7 (ShiftUnshift() Method)
+      Array.prototype.shiftUnshift = function (...args) {
+        if (this.length <= 1) {
+          this.length = 0;
+        } else {
+          for (let i = 0; i < this.length - 1; i++) {
+            this[i] = this[i + 1];
+          }
+          this.length = this.length - 1;
+        }
+        for (let i = this.length - 1; i >= 0; i--) {
+          this[i + args.length] = this[i];
         }
         for (let i = 0; i < args.length; i++) {
           this[i] = args[i];
         }
         return this.length;
       };
-      let arr = [1, 2, 3, 4, 5];
-      let res = arr.myUnshift(6, 7, 8, 9);
+
+      let arr = [30, 40, 50];
+      let x = arr.shiftUnshift(10, 20);
       console.log(arr);
-      console.log("Return by the push method:", res);
+      console.log(x);
     </script>
   </body>
 </html>
