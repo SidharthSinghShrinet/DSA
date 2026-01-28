@@ -193,6 +193,7 @@
       */
 
       //^ Question 7 (ShiftUnshift() Method)
+      /*
       Array.prototype.shiftUnshift = function (...args) {
         if (this.length <= 1) {
           this.length = 0;
@@ -213,6 +214,83 @@
 
       let arr = [30, 40, 50];
       let x = arr.shiftUnshift(10, 20);
+      console.log(arr);
+      console.log(x);
+      */
+
+      //! Date:- 27/01/2026 (Polyfills)
+
+      //^ Question 8 (Slice() method)
+      /*
+      Array.prototype.mySlice = function (start, end = this.length) {
+        let output = [];
+        for (let i = start; i < end; i++) {
+          output[output.length] = this[i];
+        }
+        return output;
+      };
+      let arr = [10, 20, 30, 40, 50];
+      let x = arr.mySlice(1,4);
+      console.log(arr);
+      console.log(x);
+      */
+
+      //^ Question 9 (ForEach() method)
+      /*
+      Array.prototype.myForEach = function (fn) {
+        if (typeof fn !== "function") {
+          throw new TypeError(`${typeof fn} ${fn} is not a function`);
+        } else {
+          for (let i = 0; i < this.length; i++) {
+            fn(this[i], i, this);
+          }
+        }
+      };
+      let arr = [10, 20, 30, 40, 50];
+      arr.myForEach((element, index, array) => {
+        console.log(`At index ${index} the value is ${element}`);
+      });
+      */
+
+      //^ Question 11 (Filter() method)
+      /*
+      Array.prototype.myFilter = function (fn) {
+        if (typeof fn !== "function") {
+          throw new TypeError(`${typeof fn} ${fn} is not a function`);
+        } else {
+          let output = [];
+          for (let i = 0; i < this.length; i++) {
+            if (fn(this[i], i, this)) {
+              output[output.length] = this[i];
+            }
+          }
+          return output;
+        }
+      };
+      let arr = [10, 20, 30, 40, 50];
+      let x = arr.myFilter((element, index, array) => {
+        return element < 30;
+      });
+      console.log(arr);
+      console.log(x);
+      */
+
+      //^ Question 10 (Map() method)
+      Array.prototype.myMap = function (fn) {
+        if (typeof fn !== "function") {
+          throw new TypeError(`${typeof fn} ${fn} is not a function`);
+        } else {
+          let output = [];
+          for (let i = 0; i < this.length; i++) {
+            output[i] = fn(this[i], i, this);
+          }
+          return output;
+        }
+      };
+      let arr = [10, 20, 30, 40, 50];
+      let x = arr.myMap((element, index, array) => {
+        return element * 3;
+      });
       console.log(arr);
       console.log(x);
     </script>
