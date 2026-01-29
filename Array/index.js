@@ -63,6 +63,7 @@ console.log(secondHighest([5, 7, 6, 9, 14, 14, 10, 2]));
 */
 
 //^ Question 4 (Find the second lowest element in an array)
+/*
 function secondLowest(arr) {
   let firstLowest = arr[0];
   let secondLowest = Infinity;
@@ -78,3 +79,100 @@ function secondLowest(arr) {
 }
 
 console.log(secondLowest([5, 7, 6, 9, 14, 14, 10, 2, 3]));
+*/
+
+//! Date:- 28/01/2026
+//^ Question 1 (Find the occurences of each element in an array)
+/*
+function occuences(arr) {
+  let obj = {};
+  for (let i = 0; i < arr.length; i++) {
+    if (obj[arr[i]]) {
+      obj[arr[i]]++;
+    } else {
+      obj[arr[i]] = 1;
+    }
+  }
+  console.log(obj);
+}
+
+occuences([10, 1, 5, 1, 10, 6]);
+*/
+
+//^ Question 2(Make the array where all the element should be unique).
+//$ 1st Way(Inbuilt Method)
+/*
+function uniqueArray(arr) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (!newArr.includes(arr[i])) {
+      newArr[newArr.length] = arr[i];
+    }
+  }
+  console.log(newArr);
+}
+uniqueArray([10, 1, 5, 1, 10, 6]);
+*/
+
+//$ 2nd Way
+/*
+function uniqueArray(arr) {
+  let newArr = [];
+  let obj = {};
+  for (let i = 0; i < arr.length; i++) {
+    if (!obj[arr[i]]) {
+      newArr[newArr.length] = arr[i];
+      obj[arr[i]] = 1;
+    }
+  }
+  console.log(newArr);
+  console.log(obj);
+}
+
+uniqueArray([10, 1, 5, 1, 10, 6]);
+*/
+
+//^ QUestion 3 (Reverse the Array with the help of Two-Pointer Method)
+/*
+function reverseArray(arr) {
+  let left = 0;
+  let right = arr.length - 1;
+  while (left < right) {
+    [arr[left], arr[right]] = [arr[right], arr[left]];
+    left++;
+    right--;
+  }
+  console.log(arr);
+}
+
+reverseArray([10, 20, 30, 40, 50]);
+*/
+
+//^ Question 4(Reverse the array with the help of map() method)
+/*
+function reverseArray(arr) {
+  let newArr = arr.map((ele, idx, arr) => {
+    return arr[arr.length - 1 - idx];
+  });
+  return newArr;
+}
+
+console.log(reverseArray([10, 20, 30, 40, 50]));
+*/
+
+//^ Question 5(Find the occurences of each element with the help of reduce() method)
+/*
+function occurences(arr) {
+  let newObj = arr.reduce((acc, ele, idx, arr) => {
+    if (acc[ele]) {
+      acc[ele]++;
+    } else {
+      acc[ele] = 1;
+    }
+    return acc;
+  }, {});
+  console.log(newObj);
+}
+
+occurences([10, 1, 5, 1, 10, 6, 1]);
+*/

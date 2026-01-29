@@ -21,278 +21,304 @@
     <script>
       //^ Question 1 (Create your own push method)
       /*
-      Array.prototype.myPush = function (...args) {
-        for (let i = 0; i < args.length; i++) {
-          this[this.length] = args[i];
-        }
-        return this.length;
-      };
-      let arr = [1, 2, 3, 4];
-      let res = arr.myPush(5, 6, 7);
-      console.log(arr);
-      console.log("Length of Array:", res);
-    */
+        Array.prototype.myPush = function (...args) {
+          for (let i = 0; i < args.length; i++) {
+            this[this.length] = args[i];
+          }
+          return this.length;
+        };
+        let arr = [1, 2, 3, 4];
+        let res = arr.myPush(5, 6, 7);
+        console.log(arr);
+        console.log("Length of Array:", res);
+      */
 
       //^ Question 2 (Create your own Pop method)
       //$ 1st Way (For Single Element)
       /*
-      Array.prototype.myPop = function () {
-        let res = this[this.length - 1];
-        if (this.length > 0) {
-          this.length = this.length - 1;
-        }
-        return res;
-      };
+        Array.prototype.myPop = function () {
+          let res = this[this.length - 1];
+          if (this.length > 0) {
+            this.length = this.length - 1;
+          }
+          return res;
+        };
 
-      let arr = [];
-      let x = arr.pop();
-      console.log(arr);
-      console.log("x:", x);
-      */
+        let arr = [];
+        let x = arr.pop();
+        console.log(arr);
+        console.log("x:", x);
+        */
 
       //$ 2nd Way(Removed Many Element from the last of the array)
       /*
-      Array.prototype.myPop2 = function (arg) {
-        if (arg >= this.length) {
-          this.length = 0;
-        } else {
-          this.length = this.length - arg;
-        }
-      };
-      */
+        Array.prototype.myPop2 = function (arg) {
+          if (arg >= this.length) {
+            this.length = 0;
+          } else {
+            this.length = this.length - arg;
+          }
+        };
+        */
 
       //& 1st Test Case
       /*
-      let arr = [1, 2, 3, 4, 6];
-      let x = arr.myPop2(3);
-      console.log(arr);
-      console.log(x);
-      */
+        let arr = [1, 2, 3, 4, 6];
+        let x = arr.myPop2(3);
+        console.log(arr);
+        console.log(x);
+        */
 
       //& 2nd Test Case
       /*
-      let arr = [1, 2];
-      let x = arr.myPop2(2);
-      console.log(arr);
-      console.log(x);
-      */
+        let arr = [1, 2];
+        let x = arr.myPop2(2);
+        console.log(arr);
+        console.log(x);
+        */
 
       //^ Question 3 (Create your own shift method)
       /*
-      Array.prototype.myShift = function () {
-        let res = this[0];
-        for (let i = 0; i < this.length - 1; i++) {
-          this[i] = this[i + 1];
-        }
-        if (this.length > 0) {
-          this.length = this.length - 1;
-        }
-        return res;
-      };
-      let arr = [10];
-      let x = arr.myShift();
-      console.log(arr);
-      console.log(x);
-      */
+        Array.prototype.myShift = function () {
+          let res = this[0];
+          for (let i = 0; i < this.length - 1; i++) {
+            this[i] = this[i + 1];
+          }
+          if (this.length > 0) {
+            this.length = this.length - 1;
+          }
+          return res;
+        };
+        let arr = [10];
+        let x = arr.myShift();
+        console.log(arr);
+        console.log(x);
+        */
 
       //^ Question 4 (Create your own Unshift method)
       //$ 1st Way (Add One Element at Starting of the array)
       /*
-      Array.prototype.myUnshift = function (arg) {
-        for (let i = arr.length - 1; i >= 0; i--) {
-          this[i + 1] = this[i];
-        }
-        this[0] = arg;
-        return this.length;
-      };
+        Array.prototype.myUnshift = function (arg) {
+          for (let i = arr.length - 1; i >= 0; i--) {
+            this[i + 1] = this[i];
+          }
+          this[0] = arg;
+          return this.length;
+        };
 
-      let arr = [2, 3, 4, 5];
-      let x = arr.myUnshift(1);
-      console.log(arr);
-      console.log(x);
-      */
+        let arr = [2, 3, 4, 5];
+        let x = arr.myUnshift(1);
+        console.log(arr);
+        console.log(x);
+        */
 
       //$ 2nd Way(Add many Element at Starting of the array)
       /*
-      Array.prototype.myUnshift2 = function (...args) {
-        for (let i = this.length - 1; i >= 0; i--) {
-          this[i + args.length] = this[i];
-        }
-        for (i = 0; i < args.length; i++) {
-          this[i] = args[i];
-        }
-        return this.length;
-      };
+        Array.prototype.myUnshift2 = function (...args) {
+          for (let i = this.length - 1; i >= 0; i--) {
+            this[i + args.length] = this[i];
+          }
+          for (i = 0; i < args.length; i++) {
+            this[i] = args[i];
+          }
+          return this.length;
+        };
 
-      let arr = [1, 2, 3, 4, 5];
-      let x = arr.myUnshift2(6, 7, 8, 9);
-      console.log(arr);
-      console.log(x);
-      */
+        let arr = [1, 2, 3, 4, 5];
+        let x = arr.myUnshift2(6, 7, 8, 9);
+        console.log(arr);
+        console.log(x);
+        */
 
       //^ Question 5 (PopShift() --> The PopShift method will remove one element from the both end)
       /*
-      Array.prototype.popShift = function () {
-        if (this.length <= 2) {
-          this.length = 0;
-        } else {
-          this.length = this.length - 1;
-          for (let i = 0; i < this.length - 1; i++) {
-            this[i] = this[i + 1];
+        Array.prototype.popShift = function () {
+          if (this.length <= 2) {
+            this.length = 0;
+          } else {
+            this.length = this.length - 1;
+            for (let i = 0; i < this.length - 1; i++) {
+              this[i] = this[i + 1];
+            }
+            this.length = this.length - 1;
           }
-          this.length = this.length - 1;
-        }
-      };
+        };
 
-      let arr = [1, 2, 3, 4, 5, 6, 7];
-      let x = arr.popShift();
-      console.log(arr);
-      console.log(x);
-      */
+        let arr = [1, 2, 3, 4, 5, 6, 7];
+        let x = arr.popShift();
+        console.log(arr);
+        console.log(x);
+        */
 
       //^ Question 5 (PopPush() Method)
       /*
-      Array.prototype.popPush = function (...args) {
-        if (this.length <= 1) {
-          this.length = 0;
-        } else {
-          this.length = this.length - 1;
-        }
-        for (let i = 0; i < args.length; i++) {
-          this[this.length] = args[i];
-        }
-        return this.length;
-      };
-      let arr = [10, 20, 30, 40];
-      let x = arr.popPush(50, 60, 70);
-      console.log(arr);
-      console.log(x);
-      */
+        Array.prototype.popPush = function (...args) {
+          if (this.length <= 1) {
+            this.length = 0;
+          } else {
+            this.length = this.length - 1;
+          }
+          for (let i = 0; i < args.length; i++) {
+            this[this.length] = args[i];
+          }
+          return this.length;
+        };
+        let arr = [10, 20, 30, 40];
+        let x = arr.popPush(50, 60, 70);
+        console.log(arr);
+        console.log(x);
+        */
 
       //^ Question 6 (ShiftPush() Method)
       /*
-      Array.prototype.shiftPush = function (...args) {
-        if (this.length <= 1) {
-          this.length = 0;
-        } else {
-          for (let i = 0; i < this.length - 1; i++) {
-            this[i] = this[i + 1];
+        Array.prototype.shiftPush = function (...args) {
+          if (this.length <= 1) {
+            this.length = 0;
+          } else {
+            for (let i = 0; i < this.length - 1; i++) {
+              this[i] = this[i + 1];
+            }
+            this.length = this.length - 1;
           }
-          this.length = this.length - 1;
-        }
-        for (let i = 0; i < args.length; i++) {
-          this[this.length] = args[i];
-        }
-        return this.length;
-      };
+          for (let i = 0; i < args.length; i++) {
+            this[this.length] = args[i];
+          }
+          return this.length;
+        };
 
-      let arr = [10, 20, 30, 40];
-      let x = arr.shiftPush(50, 60, 70);
-      console.log(arr);
-      console.log(x);
-      */
+        let arr = [10, 20, 30, 40];
+        let x = arr.shiftPush(50, 60, 70);
+        console.log(arr);
+        console.log(x);
+        */
 
       //^ Question 7 (ShiftUnshift() Method)
       /*
-      Array.prototype.shiftUnshift = function (...args) {
-        if (this.length <= 1) {
-          this.length = 0;
-        } else {
-          for (let i = 0; i < this.length - 1; i++) {
-            this[i] = this[i + 1];
+        Array.prototype.shiftUnshift = function (...args) {
+          if (this.length <= 1) {
+            this.length = 0;
+          } else {
+            for (let i = 0; i < this.length - 1; i++) {
+              this[i] = this[i + 1];
+            }
+            this.length = this.length - 1;
           }
-          this.length = this.length - 1;
-        }
-        for (let i = this.length - 1; i >= 0; i--) {
-          this[i + args.length] = this[i];
-        }
-        for (let i = 0; i < args.length; i++) {
-          this[i] = args[i];
-        }
-        return this.length;
-      };
+          for (let i = this.length - 1; i >= 0; i--) {
+            this[i + args.length] = this[i];
+          }
+          for (let i = 0; i < args.length; i++) {
+            this[i] = args[i];
+          }
+          return this.length;
+        };
 
-      let arr = [30, 40, 50];
-      let x = arr.shiftUnshift(10, 20);
-      console.log(arr);
-      console.log(x);
-      */
+        let arr = [30, 40, 50];
+        let x = arr.shiftUnshift(10, 20);
+        console.log(arr);
+        console.log(x);
+        */
 
       //! Date:- 27/01/2026 (Polyfills)
 
       //^ Question 8 (Slice() method)
       /*
-      Array.prototype.mySlice = function (start, end = this.length) {
-        let output = [];
-        for (let i = start; i < end; i++) {
-          output[output.length] = this[i];
-        }
-        return output;
-      };
-      let arr = [10, 20, 30, 40, 50];
-      let x = arr.mySlice(1,4);
-      console.log(arr);
-      console.log(x);
-      */
+        Array.prototype.mySlice = function (start, end = this.length) {
+          let output = [];
+          for (let i = start; i < end; i++) {
+            output[output.length] = this[i];
+          }
+          return output;
+        };
+        let arr = [10, 20, 30, 40, 50];
+        let x = arr.mySlice(1,4);
+        console.log(arr);
+        console.log(x);
+        */
 
       //^ Question 9 (ForEach() method)
       /*
-      Array.prototype.myForEach = function (fn) {
-        if (typeof fn !== "function") {
-          throw new TypeError(`${typeof fn} ${fn} is not a function`);
-        } else {
-          for (let i = 0; i < this.length; i++) {
-            fn(this[i], i, this);
+        Array.prototype.myForEach = function (fn) {
+          if (typeof fn !== "function") {
+            throw new TypeError(`${typeof fn} ${fn} is not a function`);
+          } else {
+            for (let i = 0; i < this.length; i++) {
+              fn(this[i], i, this);
+            }
           }
-        }
-      };
-      let arr = [10, 20, 30, 40, 50];
-      arr.myForEach((element, index, array) => {
-        console.log(`At index ${index} the value is ${element}`);
-      });
-      */
+        };
+        let arr = [10, 20, 30, 40, 50];
+        arr.myForEach((element, index, array) => {
+          console.log(`At index ${index} the value is ${element}`);
+        });
+        */
 
       //^ Question 11 (Filter() method)
       /*
-      Array.prototype.myFilter = function (fn) {
-        if (typeof fn !== "function") {
-          throw new TypeError(`${typeof fn} ${fn} is not a function`);
-        } else {
-          let output = [];
-          for (let i = 0; i < this.length; i++) {
-            if (fn(this[i], i, this)) {
-              output[output.length] = this[i];
+        Array.prototype.myFilter = function (fn) {
+          if (typeof fn !== "function") {
+            throw new TypeError(`${typeof fn} ${fn} is not a function`);
+          } else {
+            let output = [];
+            for (let i = 0; i < this.length; i++) {
+              if (fn(this[i], i, this)) {
+                output[output.length] = this[i];
+              }
             }
+            return output;
           }
-          return output;
-        }
-      };
-      let arr = [10, 20, 30, 40, 50];
-      let x = arr.myFilter((element, index, array) => {
-        return element < 30;
-      });
-      console.log(arr);
-      console.log(x);
-      */
+        };
+        let arr = [10, 20, 30, 40, 50];
+        let x = arr.myFilter((element, index, array) => {
+          return element < 30;
+        });
+        console.log(arr);
+        console.log(x);
+        */
 
       //^ Question 10 (Map() method)
-      Array.prototype.myMap = function (fn) {
+      /*
+        Array.prototype.myMap = function (fn) {
+          if (typeof fn !== "function") {
+            throw new TypeError(`${typeof fn} ${fn} is not a function`);
+          } else {
+            let output = [];
+            for (let i = 0; i < this.length; i++) {
+              output[i] = fn(this[i], i, this);
+            }
+            return output;
+          }
+        };
+        let arr = [10, 20, 30, 40, 50];
+        let x = arr.myMap((element, index, array) => {
+          return element * 3;
+        });
+        console.log(arr);
+        console.log(x);
+        */
+
+      //^ Question 6(Implement the Reduce() Method with the help of Polyfills).
+      Array.prototype.myReduce = function (fn, initialValue) {
         if (typeof fn !== "function") {
           throw new TypeError(`${typeof fn} ${fn} is not a function`);
         } else {
-          let output = [];
-          for (let i = 0; i < this.length; i++) {
-            output[i] = fn(this[i], i, this);
+          if (initialValue === undefined) {
+            initialValue = this[0];
+            for (let i = 1; i < this.length; i++) {
+              initialValue = fn(initialValue, this[i], i, this);
+            }
+          } else {
+            for (let i = 0; i < this.length; i++) {
+              initialValue = fn(initialValue, this[i], i, this);
+            }
           }
-          return output;
+          return initialValue;
         }
       };
-      let arr = [10, 20, 30, 40, 50];
-      let x = arr.myMap((element, index, array) => {
-        return element * 3;
-      });
-      console.log(arr);
-      console.log(x);
+      let arr = [10, , 20];
+      let newArr = arr.reduce((acc, ele, idx, arr) => {
+        return acc + ele;
+      }, 0);
+      console.log(newArr);
     </script>
   </body>
 </html>
