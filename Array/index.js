@@ -265,3 +265,32 @@ function insertionSort(arr) {
 
 console.log(insertionSort([5, 4, 3, 2, 1]));
 */
+
+//! Date:- 31/01/2026
+
+//^ Question 1(Implement the Quick Sort)
+/*
+function quickSort(arr, start = 0, end = arr.length - 1) {
+  if (start >= end) {
+    return;
+  }
+  let left = start;
+  let right = end;
+  let pivotIndex = Math.trunc((start + end) / 2);
+  let pivotValue = arr[pivotIndex];
+  while (left <= right) {
+    while (pivotValue > arr[left]) left++;
+    while (pivotValue < arr[right]) right--;
+    if (left <= right) {
+      [arr[left], arr[right]] = [arr[right], arr[left]];
+      left++;
+      right--;
+    }
+  }
+  quickSort(arr, start, right);
+  quickSort(arr, left, end);
+  return arr;
+}
+
+console.log(quickSort([6, 2, 9, 5, 1, 7, 3]));
+*/
