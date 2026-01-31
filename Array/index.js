@@ -231,6 +231,7 @@ bubbleSort([50, 70, 40, 30, 20, 10]);
 */
 
 //^ Question 4(Implement the Selection Sort)
+/*
 function selectionSort(arr) {
   for (let i = 0; i < arr.length - 1; i++) {
     let index = i;
@@ -245,3 +246,22 @@ function selectionSort(arr) {
 }
 
 selectionSort([50, 70, 40, 30, 20, 10]);
+*/
+
+//! Date:- 30/01/2026
+
+//^ Question 5(Implement the Insertion Sort)
+/*
+function insertionSort(arr) {
+  for (let i = 1; i < arr.length; i++) {
+    let j = i;
+    while (j > 0 && arr[j - 1] > arr[j]) {
+      [arr[j - 1], arr[j]] = [arr[j], arr[j - 1]];
+      j--;
+    }
+  }
+  return arr;
+}
+
+console.log(insertionSort([5, 4, 3, 2, 1]));
+*/
