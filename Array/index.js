@@ -294,3 +294,53 @@ function quickSort(arr, start = 0, end = arr.length - 1) {
 
 console.log(quickSort([6, 2, 9, 5, 1, 7, 3]));
 */
+
+//! Date:- 01/02/2026
+
+//^ Question 1(Implement the Merge Sort)
+function merge(arr, l, r) {
+  let i = 0;
+  let j = 0;
+  let k = 0;
+  while (i < l.length && j < r.length) {
+    if (l[i] < r[j]) {
+      arr[k] = l[i];
+      k++;
+      i++;
+    } else {
+      arr[k] = r[j];
+      k++;
+      j++;
+    }
+  }
+  while (i < l.length) {
+    arr[k] = l[i];
+    k++;
+    i++;
+  }
+  while (j < r.length) {
+    arr[k] = r[j];
+    k++;
+    j++;
+  }
+}
+
+function sort(arr) {
+  if (arr.length == 1) {
+    return;
+  }
+  let left = [];
+  let right = [];
+  for (let i = 0; i < Math.trunc(arr.length / 2); i++) {
+    left[i] = arr[i];
+  }
+  for (let i = Math.trunc(arr.length / 2); i < arr.length; i++) {
+    right[right.length] = arr[i];
+  }
+  sort(left);
+  sort(right);
+  merge(arr, left, right);
+  return arr;
+}
+
+console.log(sort([6, 2, 9, 5, 1, 7, 3]));
